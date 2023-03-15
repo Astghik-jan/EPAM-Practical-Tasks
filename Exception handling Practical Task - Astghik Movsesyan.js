@@ -11,14 +11,14 @@ try {
   }
 }
 
-try {
-    console.log(1/0);
-  } catch (error) {
-    if (error instanceof TypeError) {
-      console.error('cannot be divided by zero');
-    } else {
-      console.error(error);
+  try {
+    const result = 1/0;
+    if (isNaN(result)) {
+      throw new Error('cannot be divided by zero');
     }
+    console.log(result);
+  } catch (error) {
+    console.error(error);
   }
   
 
